@@ -7,6 +7,8 @@ while (x <= 100) {
   x++;
 }
 
+console.log("");
+
 // For Odd Number
 let y = 78;
 while (y <= 98) {

@@ -1,37 +1,50 @@
-// function greet(name, name2) {
-//   console.log("hello " + name + " " + name2);
-// }
+function calculateMoney(ticketSale) {
+  const ticketPrice = 120;
+  const caretakerSalary = 500;
+  const staffNo = 8;
+  const lunchCost = 50;
 
-// greet("mushfiq", "alam");
-
-let r = 10 < "5";
-function binarySearch(arr, target) {
-  let low = 0;
-  let high = arr.length - 1;
-
-  while (low <= high) {
-    let mid = Math.floor((low + high) / 2);
-    let guess = arr[mid];
-
-    if (guess === target) {
-      return mid; // Element found, return its index
-    } else if (guess < target) {
-      low = mid + 1; // Target is in the right half
-    } else {
-      high = mid - 1; // Target is in the left half
-    }
+  if (ticketSale < 0) {
+    return "You've Entered Invalid Number.";
   }
 
-  return -1; // Element not found
+  const dailyLunchCost = staffNo * lunchCost;
+  const dailyExpense = caretakerSalary + dailyLunchCost;
+  const dailyIncome = ticketPrice * ticketSale;
+  const dailyRemaining = dailyIncome - dailyExpense;
+  return dailyRemaining;
 }
 
-// Example usage:
-const sortedArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const targetElement = 6;
-const result = binarySearch(sortedArray, targetElement);
+function checkName(name) {
+  if (typeof name !== "string") {
+    return "invalid";
+  }
 
-if (result !== -1) {
-  console.log(`Element ${targetElement} found at index ${result}.`);
-} else {
-  console.log(`Element ${targetElement} not found in the array.`);
+  const nameChar = ["a", "y", "i", "e", "o", "u", "w"];
+  const lastChar = name.toLowerCase().charAt(name.length - 1);
+
+  if (nameChar.includes(lastChar)) {
+    return "Good Name";
+  } else {
+    return "Bad Name";
+  }
 }
+
+function deleteInvalids(array) {
+  if (Array.isArray(array) === false) {
+    return "Invalid Array";
+  }
+
+  let onlyNumbers = [];
+  for (const number of array) {
+    if (typeof number === "number" && Number.isFinite(number)) {
+      onlyNumbers.push(number);
+    }
+  }
+  return onlyNumbers;
+}
+
+// console.log(deleteInvalids(["1", { num: 2 }, NaN]));
+// let numbers = [1, null, undefined, 18, -19, NaN, "12", [1, 2], { ob: "lala" }];
+// let validNumbers = deleteInvalids(numbers);
+// console.log(validNumbers);

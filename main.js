@@ -5,7 +5,7 @@ function calculateMoney(ticketSale) {
   const lunchCost = 50;
 
   if (ticketSale < 0) {
-    return "You've Entered Invalid Number.";
+    return "Invalid Number";
   }
 
   const dailyLunchCost = staffNo * lunchCost;

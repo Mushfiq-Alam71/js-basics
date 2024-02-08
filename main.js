@@ -44,7 +44,28 @@ function deleteInvalids(array) {
   return onlyNumbers;
 }
 
-// console.log(deleteInvalids(["1", { num: 2 }, NaN]));
-// let numbers = [1, null, undefined, 18, -19, NaN, "12", [1, 2], { ob: "lala" }];
-// let validNumbers = deleteInvalids(numbers);
-// console.log(validNumbers);
+function password(obj) {
+  const name = obj.name;
+  const birthYear = obj.birthYear;
+  const siteName = obj.siteName;
+
+  if (
+    obj.name === undefined ||
+    obj.birthYear === undefined ||
+    obj.siteName === undefined
+  ) {
+    return "invalid";
+  }
+
+  if (birthYear.toString().length !== 4) {
+    return "invalid";
+  }
+
+  const formatSiteName =
+    siteName.charAt(0).toUpperCase() + siteName.slice(1).toLowerCase();
+
+  const password = formatSiteName + "#" + name + "@" + birthYear;
+  return password;
+}
+
+function monthlySavings(arr, livingCost) {}

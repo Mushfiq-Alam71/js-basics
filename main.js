@@ -68,4 +68,28 @@ function password(obj) {
   return password;
 }
 
-function monthlySavings(arr, livingCost) {}
+function monthlySavings(arr, livingCost) {
+  if (Array.isArray(arr) === undefined) {
+    return "invalid input";
+  }
+  if (typeof livingCost !== "number") {
+    return "invalid input";
+  }
+  let totalIncome = 0;
+  for (let i = 0; i < arr.length; i++) {
+    totalIncome += payments[i];
+  }
+
+  let totalTax = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (payments[i] >= 3000) {
+      totalTax += payments[i] * 0.2;
+    }
+  }
+  const savingAmount = totalIncome - livingCost - totalTax;
+  if (savingAmount >= 0) {
+    return savingAmount;
+  } else {
+    return "earn more";
+  }
+}

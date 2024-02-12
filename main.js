@@ -77,13 +77,13 @@ function monthlySavings(arr, livingCost) {
   }
   let totalIncome = 0;
   for (let i = 0; i < arr.length; i++) {
-    totalIncome += payments[i];
+    totalIncome += arr[i];
   }
 
   let totalTax = 0;
   for (let i = 0; i < arr.length; i++) {
-    if (payments[i] >= 3000) {
-      totalTax += payments[i] * 0.2;
+    if (arr[i] >= 3000) {
+      totalTax += arr[i] * 0.2;
     }
   }
   const savingAmount = totalIncome - livingCost - totalTax;
@@ -93,3 +93,8 @@ function monthlySavings(arr, livingCost) {
     return "earn more";
   }
 }
+
+const paymentArray = [1000, 2000, 3000];
+const liv = 5400;
+const saving = monthlySavings(paymentArray, liv);
+console.log(saving);
